@@ -1,0 +1,43 @@
+/* Page container */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Back button */
+.back-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+/* Back button hover (desktop only) */
+@media (hover: hover) {
+  .back-btn:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Document card spacing */
+.container > div {
+  margin-top: 8px;
+}
+
+/* Tablet adjustments */
+@media (min-width: 600px) {
+  .container {
+    padding: 24px;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .container {
+    padding: 32px;
+  }
+}

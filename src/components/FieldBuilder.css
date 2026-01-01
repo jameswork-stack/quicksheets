@@ -1,0 +1,62 @@
+.field-builder {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.field-builder input,
+.field-builder select,
+.field-builder button {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.field-builder input:focus,
+.field-builder select:focus {
+  outline: none;
+  border-color: #86efac;
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.field-builder input::placeholder {
+  color: #94a3b8;
+}
+
+.field-builder button {
+  background-color: #22c55e;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.field-builder button:hover {
+  background-color: #16a34a;
+}
+
+.field-builder button:active {
+  transform: translateY(1px);
+}
+
+.field-builder button:disabled {
+  background-color: #bbf7d0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.field-builder select {
+  background-color: white;
+  cursor: pointer;
+}
+
+.field-builder select:focus {
+  border-color: #86efac;
+}

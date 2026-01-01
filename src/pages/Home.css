@@ -1,0 +1,227 @@
+/* Main Layout */
+.app-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-section h2 {
+  font-size: 1.75rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Create Button */
+.create-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.create-btn:hover {
+  background-color: rgba(0, 128, 0, 0.76);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Document List */
+.document-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Document Card */
+.document-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.document-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: #c7d2fe;
+}
+
+.document-header {
+  margin-bottom: 0.5rem;
+}
+
+.document-header h3 {
+  font-size: 1rem;
+  color: #1e293b;
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.document-date {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: block;
+}
+
+.document-content {
+  flex-grow: 1;
+  margin-bottom: 1.25rem;
+}
+
+.field-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.field-row strong {
+  color: #475569;
+  min-width: 120px;
+  display: inline-block;
+}
+
+.field-row span {
+  color: #334155;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* Document Actions */
+.document-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.document-actions button {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.document-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.document-actions button:active {
+  transform: translateY(0);
+}
+
+.btn-edit {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+.btn-edit:hover {
+  background-color: #bae6fd;
+}
+
+.btn-delete {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.btn-delete:hover {
+  background-color: #fecaca;
+}
+
+.btn-export {
+  background-color: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.btn-export:hover {
+  background-color: #bbf7d0;
+}
+
+/* Empty State */
+.empty-state {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 1px dashed #e2e8f0;
+  margin-top: 1.5rem;
+}
+
+.empty-state p {
+  color: #64748b;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .document-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .create-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .field-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .field-row strong {
+    min-width: auto;
+  }
+}
