@@ -10,10 +10,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'QuickSheet App',
-        short_name: 'QuickSheet',
-        description: 'A quick sheet application',
-        theme_color: '#ffffff',
+        name: 'IPCU Audit Tool',
+        short_name: 'IPCU Audit',
+        description: 'IPCU Audit Tool',
+        theme_color: '#4CAF50',
         icons: [
           {
             src: 'pwa-192x192.png',

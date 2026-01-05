@@ -1,7 +1,7 @@
 {
-  "name": "QuickSheet App",
-  "short_name": "QuickSheet",
-  "description": "A quick sheet application",
+  "name": "IPCU audit tool",
+  "short_name": "IPCU Audit",
+  "description": "IPCU Audit Tool",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

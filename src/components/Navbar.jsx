@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="logo">QuickSheets</Link>
+        <Link to="/" className="logo">IPCU audit tool</Link>
         <div className="nav-links">
           {currentUser ? (
             <>
