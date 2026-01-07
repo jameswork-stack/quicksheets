@@ -64,16 +64,67 @@
 
 .extra-input {
   margin-top: 6px;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
   border: 1px solid #d1d5db;
+  font-size: 14px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.dropdown-options-input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.dropdown-options-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.extra-type-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.extra-type-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.form-field input:not(.dropdown-options-input):focus,
+.form-field select:not(.extra-type-select):focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+select:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .extra-input-row {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.extra-input-row > * {
+  margin-bottom: 4px;
 }
 
 .remove-extra-btn {
