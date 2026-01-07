@@ -114,23 +114,33 @@ export default function Home() {
     
     // Prepare the data with document title and field values
     const exportData = [];
-    
+
     // Add document title as the first row
     exportData.push([document.title || 'Untitled']);
     exportData.push([]); // Empty row for spacing
-    
-    // Create headers row with field names
-    const headers = document.fields?.map(field => field.label || 'Untitled Field') || [];
+
+    // Build headers and vertical data columns for each field, including extras
+    const savedData = document.data || {};
+
+    // Build columns: each column is an array of values (main value then any extras)
+    const columns = (document.fields || []).map(field => {
+      const col = [];
+      col.push(savedData[field.id] || '');
+      const extraKeys = Object.keys(savedData).filter(k => k.startsWith(`${field.id}__extra__`)).sort();
+      extraKeys.forEach(k => col.push(savedData[k] || ''));
+      return { label: field.label || 'Untitled Field', values: col };
+    });
+
+    const headers = columns.map(c => c.label);
     exportData.push(headers);
-    
-    // Add data rows
-    if (document.data && Object.keys(document.data).length > 0) {
-      const dataRow = document.fields?.map(field => document.data[field.id] || '') || [];
-      exportData.push(dataRow);
-    } else {
-      // Add empty row if no data
-      const emptyRow = new Array(headers.length).fill('');
-      exportData.push(emptyRow);
+
+    // Determine the maximum number of rows needed (to accommodate extras)
+    const maxRows = columns.reduce((mx, c) => Math.max(mx, c.values.length), 1);
+
+    // Build rows from columns (so extras appear under the same header vertically)
+    for (let r = 0; r < maxRows; r++) {
+      const row = columns.map(c => c.values[r] || '');
+      exportData.push(row);
     }
     
     // Add metadata
@@ -143,16 +153,14 @@ export default function Home() {
     const ws = XLSX.utils.aoa_to_sheet(exportData);
     
     // Set column widths
-    const colWidths = document.fields?.map(() => ({ wch: 30 })) || [];
-    if (colWidths.length > 0) {
-      colWidths[0].wch = 20; // Make first column slightly narrower
-    }
+    const colCount = headers.length;
+    const colWidths = new Array(colCount).fill({ wch: 30 }).map((w, i) => ({ wch: i === 0 ? 20 : 30 }));
     ws['!cols'] = colWidths;
     
     // Merge cells for document title
-    if (document.fields?.length > 0) {
+    if (headers.length > 0) {
       ws['!merges'] = [
-        XLSX.utils.decode_range("A1:" + XLSX.utils.encode_col(document.fields.length - 1) + "1")
+        XLSX.utils.decode_range("A1:" + XLSX.utils.encode_col(headers.length - 1) + "1")
       ];
     }
     
