@@ -1,7 +1,7 @@
 {
-  "name": "IPCU audit tool",
-  "short_name": "IPCU Audit",
-  "description": "IPCU Audit Tool",
+  "name": "My Audit Tool",
+  "short_name": "Audit Tool",
+  "description": "My Audit Tool",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

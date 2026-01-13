@@ -18,7 +18,10 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="container">
-        <Link to="/" className="logo">IPCU audit tool</Link>
+        <Link to="/" className="logo">
+          <img src="/logo.jpg" alt="My Audit Tool" className="logo-img" />
+          <span>My Audit Tool</span>
+        </Link>
         <div className="nav-links">
           {currentUser ? (
             <>
